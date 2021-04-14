@@ -11,8 +11,7 @@ const submissions = [
 ];
 
 function addSubmission(array, newName, newScore, newDate) {
-  submissions.push({
-    submissions: array,
+  array.push({
     name: newName,
     score: newScore,
     date: newDate,
@@ -22,18 +21,20 @@ function addSubmission(array, newName, newScore, newDate) {
 
 addSubmission(submissions, 'Annie', 80, '2021-04-14');
 
+
 function deleteSubmissionByIndex(array, index) {
   array.splice(index, 1);
 }
 
-deleteSubmissionByIndex(submissions, 2);
+deleteSubmissionByIndex(submissions, 0);
 
 function deleteSubmissionByName(array, name) {
-  let index = array.findIndex((array) => array.name === name);
+  let index = array.findIndex(x => x.name === name);
   array.splice(index, 1);
 }
 
 deleteSubmissionByName(submissions, 'Jack');
+
 
 function editSubmission(array, index, score) {
   array[index].score = score;
@@ -43,8 +44,8 @@ function editSubmission(array, index, score) {
 editSubmission(submissions, 2, 20);
 
 function findSubmissionByName(array, name) {
-  let person = array.find((x) => x.name === name);
-  return person;
+  return array.find(x => x.name === name);
+  
 }
 
 console.log(findSubmissionByName(submissions, 'Jill'));
